@@ -1,2 +1,4 @@
 @markharrison:registry=https://npm.pkg.github.com/
 package-lock=false
+
+npm install @markharrison/markjssparkles@latest --save
