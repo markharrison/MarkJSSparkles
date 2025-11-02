@@ -48,7 +48,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Configure npm authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_MARKJS }}" > ~/.npmrc
+          npm whoami
+
       - name: Publish to NPM
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_MARKJS }}
+        run: npm publish --access public
