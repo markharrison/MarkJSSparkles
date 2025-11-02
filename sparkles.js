@@ -3,7 +3,7 @@
  * A reusable sparkle effect system for canvas animations
  */
 
-class SparkleEffect {
+export class SparkleEffect {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
