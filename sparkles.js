@@ -9,6 +9,14 @@ class SparkleEffect {
         this.ctx = canvas.getContext('2d');
         this.sparkles = [];
         this.maxSparkles = 100;
+        this.colors = [
+            { r: 255, g: 255, b: 255 }, // White
+            { r: 255, g: 223, b: 0 },   // Gold
+            { r: 135, g: 206, b: 250 }, // Sky Blue
+            { r: 255, g: 182, b: 193 }, // Light Pink
+            { r: 144, g: 238, b: 144 }, // Light Green
+            { r: 255, g: 165, b: 0 }    // Orange
+        ];
     }
 
     /**
@@ -34,15 +42,7 @@ class SparkleEffect {
      * Generates a random sparkle color
      */
     getRandomColor() {
-        const colors = [
-            { r: 255, g: 255, b: 255 }, // White
-            { r: 255, g: 223, b: 0 },   // Gold
-            { r: 135, g: 206, b: 250 }, // Sky Blue
-            { r: 255, g: 182, b: 193 }, // Light Pink
-            { r: 144, g: 238, b: 144 }, // Light Green
-            { r: 255, g: 165, b: 0 }    // Orange
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
+        return this.colors[Math.floor(Math.random() * this.colors.length)];
     }
 
     /**

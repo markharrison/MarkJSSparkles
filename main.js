@@ -59,8 +59,16 @@ canvas.addEventListener('click', (event) => {
 
 // Mouse move interaction - create sparkles on mouse move
 let isMouseDown = false;
+let canvasRect = canvas.getBoundingClientRect();
+
+// Update canvas rect on window resize
+window.addEventListener('resize', () => {
+    canvasRect = canvas.getBoundingClientRect();
+});
+
 canvas.addEventListener('mousedown', () => {
     isMouseDown = true;
+    canvasRect = canvas.getBoundingClientRect();
 });
 
 canvas.addEventListener('mouseup', () => {
@@ -69,9 +77,8 @@ canvas.addEventListener('mouseup', () => {
 
 canvas.addEventListener('mousemove', (event) => {
     if (isMouseDown) {
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+        const x = event.clientX - canvasRect.left;
+        const y = event.clientY - canvasRect.top;
         sparkleEffect.addSparkles(5, x, y);
     }
 });
